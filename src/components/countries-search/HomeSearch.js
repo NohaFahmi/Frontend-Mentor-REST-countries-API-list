@@ -34,9 +34,8 @@ export class HomeSearch extends React.Component {
                         Filter by Region
                     </button>
                     <div className={menuClass} aria-labelledby="dropdownMenuButton"  >
-                        <a className="dropdown-item" href="#"></a>
-                        <a className="dropdown-item" href="#">Another action</a>
-                        <a className="dropdown-item" href="#">Something else here</a>
+                        <a className="dropdown-item" href="/">Another action</a>
+                        <a className="dropdown-item" href="/">Something else here</a>
                     </div>
                 </div>
             </div>

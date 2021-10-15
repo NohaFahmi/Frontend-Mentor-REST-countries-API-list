@@ -1,11 +1,35 @@
 import './App.css';
 import Home from './components/Home';
+import Header from './components/header/Header';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promiseMiddleware from 'redux-promise';
+import reducers from './reducers';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 
 function App() {
   return (
-    <div className="App">
-      <Home></Home>
-    </div>
+    <Provider store={createStoreWithMW(reducers)}>
+      <Router>
+          <Header/>
+          <Switch>
+            {/* <Route path='/countries/:id' component={} /> */}
+            <Route exact path='/' component={Home} />
+            <Route path="*" render={() => (
+              <h1 className="error alert-danger">
+                404
+              </h1>
+            )} />
+          </Switch>
+        </Router>
+      </Provider>
   );
 }
 

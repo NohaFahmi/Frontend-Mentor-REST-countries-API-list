@@ -1,17 +1,18 @@
-import { render } from "react-dom"
-import Header from './header/Header';
 import { HomeSearch } from "./countries-search/HomeSearch";
-import {CountriesList} from './countries-list/CountriesList'
-const Home = () => {
+import CountriesList from "./countries-list/CountriesList";
+import React from "react";
+
+
+class Home extends React.Component {
+  
+  render() {
     return (
-        <div>
-            <Header></Header>
-            <div className='page-content container'>
-                <HomeSearch></HomeSearch>
-                <CountriesList></CountriesList>
-            </div>
-        </div>
-    )
+      <div className="page-content container">
+        <HomeSearch></HomeSearch>
+        <CountriesList></CountriesList>
+      </div>
+    );
+  }
 }
 
 export default Home;
