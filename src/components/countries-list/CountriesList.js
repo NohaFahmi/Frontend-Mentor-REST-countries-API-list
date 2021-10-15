@@ -3,6 +3,7 @@ import { CountryCard } from "../country-card/CountryCard";
 import './CountriesList.scss';
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import {Link} from 'react-router-dom';
 
 class CountriesList extends React.Component {
 
@@ -10,9 +11,11 @@ class CountriesList extends React.Component {
         if(list['countriesList']) {
             return list['countriesList'].map((country) => {
                 return (
-                    <div className='country-card-item'>
-                        <CountryCard country={country}></CountryCard>
-                    </div>
+                    <Link to={`/${country.name}`}>
+                        <div className='country-card-item'>
+                            <CountryCard country={country}></CountryCard>
+                        </div>
+                    </Link>
                 )
             })
         }

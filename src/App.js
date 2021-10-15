@@ -11,6 +11,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { CountryDetails } from './components/country-details/CountryDetails';
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 
@@ -22,6 +23,7 @@ function App() {
           <Switch>
             {/* <Route path='/countries/:id' component={} /> */}
             <Route exact path='/' component={Home} />
+            <Route exact path='/:name' component={CountryDetails} />
             <Route path="*" render={() => (
               <h1 className="error alert-danger">
                 404

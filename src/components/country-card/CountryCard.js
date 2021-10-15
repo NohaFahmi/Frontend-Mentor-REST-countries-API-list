@@ -12,9 +12,9 @@ export class CountryCard extends React.Component {
             const {country} = this.state;
             return (
                 <div className='country-card'>
-                    <img src={country.flags.png} alt='country-flag'/>
+                    <img src={country.flag} alt='country-flag'/>
                     <div className='country-card__body'>
-                        <h4>{country.name.common}</h4>
+                        <h4>{country.name}</h4>
                         <div className='country-card__attributes'>
                             <p><span>Population:</span> {country.population}</p>
                             <p><span>Region:</span> {country.region}</p>
