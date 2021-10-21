@@ -13,6 +13,10 @@ export const countries = (state = {}, action) => {
             return {...state, country: action.payload}
         }
 
+        case 'COUNTRIES_BY_CODES': {
+            return {...state, borderCountries: action.payload}
+        }
+
         default: {
             return state;
         }

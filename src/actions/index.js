@@ -1,5 +1,3 @@
-// const baseURL = 'http://localhost:3030/api';
-// const baseURL = 'https://npabackendapis.nohaa.repl.co/api';
 const baseURL = 'https://restcountries.com/v2';
 
 export const getAllCountries = async () => {
@@ -20,6 +18,17 @@ export const getCountryByFullName = async (countryName) => {
 
     return {
         type: 'COUNTRY_BY_NAME',
+        payload: payload[0]
+    }
+}
+
+export const getCountriesByListOfCodes = async (listOfCodes) => {
+
+    let response = await fetch(`${baseURL}/alpha?codes=${listOfCodes}`);
+    let payload = await response.json();
+
+    return {
+        type: 'COUNTRIES_BY_CODES',
         payload
     }
 }

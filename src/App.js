@@ -11,7 +11,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { CountryDetails } from './components/country-details/CountryDetails';
+import CountryDetails from './components/country-details/CountryDetails';
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 
