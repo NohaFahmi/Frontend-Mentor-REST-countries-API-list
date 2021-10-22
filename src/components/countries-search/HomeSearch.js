@@ -4,8 +4,17 @@ import './HomeSearch.scss';
 export class HomeSearch extends React.Component {
 
     state = {
-        isOpen: false
+        isOpen: false,
+        regions: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
     };
+
+    renderFilterOptions({regions}) {
+        return regions.map((region) => {
+            return (
+                <a className="dropdown-item" href="#">{region}</a>
+            )
+        })
+    }
 
     render() {
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
@@ -33,9 +42,8 @@ export class HomeSearch extends React.Component {
                     }}>
                         Filter by Region
                     </button>
-                    <div className={menuClass} aria-labelledby="dropdownMenuButton"  >
-                        <a className="dropdown-item" href="/">Another action</a>
-                        <a className="dropdown-item" href="/">Something else here</a>
+                    <div className={menuClass} aria-labelledby="dropdownMenuButton">
+                       {this.renderFilterOptions(this.state)}
                     </div>
                 </div>
             </div>
