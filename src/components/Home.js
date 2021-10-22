@@ -20,8 +20,16 @@ class Home extends React.Component {
   }
   onSearchingCountries = (name) => {
     if(name) {
-      this.setState({countryName: name});
+      this.props.history.push({
+        pathname: '/search',
+        search: `?country=${name}`
+      })
       this.props.searchCountriesByName(name);
+    } else {
+      this.setState({countryName: name});
+      this.props.history.push({
+        pathname: '/',
+      })
     }
   }
   render() {

@@ -9,16 +9,16 @@ export class HomeSearch extends React.Component {
     };
 
     onFilterByRegion(region) {
-        this.props.filterByRegion(region)
+        this.props.filterByRegion(region, true);
     }
     onSearchByName(name) {
-        this.props.searchCountries(name);
+        this.props.searchCountries(name, true);
     }
 
     renderFilterOptions({regions}) {
         return regions.map((region) => {
             return (
-                <a className="dropdown-item" href="#" onClick={(event) => {
+                <a className="dropdown-item" href="/" onClick={(event) => {
                     event.preventDefault();
                     this.onFilterByRegion(region)
                 }} key={region}>{region}</a>
@@ -32,8 +32,8 @@ export class HomeSearch extends React.Component {
             <div className='search-wrapper'>
                 <div className='input-group search-input'>
                     <div class="input-group-prepend">
-                        <button className='btn btn-icon d-flex' disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fillRule="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                        <button className='btn btn-icon' disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                             </svg>
                         </button>
@@ -42,7 +42,7 @@ export class HomeSearch extends React.Component {
                         this.setState({
                             [event.target.name]: event.target.value
                         })
-                        this.onSearchByName( event.target.value);
+                        this.onSearchByName(event.target.value);
                     }}/>
                 </div>
                 <div class="dropdown">

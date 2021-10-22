@@ -21,8 +21,8 @@ function App() {
       <Router>
           <Header/>
           <Switch>
-            {/* <Route path='/countries/:id' component={} /> */}
             <Route exact path='/' component={Home} />
+            <Route path='/search' component={Home} />
             <Route exact path='/:name' component={CountryDetails} />
             <Route path="*" render={() => (
               <h1 className="error alert-danger">
