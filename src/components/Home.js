@@ -18,12 +18,18 @@ class Home extends React.Component {
       this.props.getCountriesByRegion(region);
     }
   }
+  onSearchingCountries = (name) => {
+    if(name) {
+      this.setState({countryName: name});
+      this.props.searchCountriesByName(name);
+    }
+  }
   render() {
     if(this.props.list) {
       const countriesList = this.props.list['countriesList'];
       return (
         <div className="page-content container">
-          <HomeSearch filterByRegion={this.onFilterByRegion}></HomeSearch>
+          <HomeSearch filterByRegion={this.onFilterByRegion} searchCountries={this.onSearchingCountries}></HomeSearch>
           <CountriesList countries={countriesList}></CountriesList>
         </div>
       );

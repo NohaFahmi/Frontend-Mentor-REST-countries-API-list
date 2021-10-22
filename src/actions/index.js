@@ -43,3 +43,13 @@ export const getCountriesByRegion = async (region) => {
         payload
     }
 }
+
+export const searchCountriesByName = async(name) => {
+    let response = await fetch(`${baseURL}/name/${name}`);
+    let payload = await response.json();
+
+    return {
+        type: 'SEARCH_COUNTRIES',
+        payload
+    }
+}

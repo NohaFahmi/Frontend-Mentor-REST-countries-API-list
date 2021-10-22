@@ -20,6 +20,10 @@ export const countries = (state = {}, action) => {
         case 'COUNTRIES_BY_REGION': {
             return {...state, countriesList: action.payload}
         }
+        
+        case 'SEARCH_COUNTRIES': {
+            return {...state, countriesList: action.payload}
+        }
 
         default: {
             return state;
