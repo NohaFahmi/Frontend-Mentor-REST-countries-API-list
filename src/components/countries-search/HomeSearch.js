@@ -9,10 +9,10 @@ export class HomeSearch extends React.Component {
     };
 
     onFilterByRegion(region) {
-        this.props.filterByRegion(region, true);
+        this.props.filterByRegion(region);
     }
     onSearchByName(name) {
-        this.props.searchCountries(name, true);
+        this.props.searchCountries(name);
     }
 
     renderFilterOptions({regions}) {
@@ -20,7 +20,8 @@ export class HomeSearch extends React.Component {
             return (
                 <a className="dropdown-item" href="/" onClick={(event) => {
                     event.preventDefault();
-                    this.onFilterByRegion(region)
+                    this.setState({ isOpen: false });
+                    this.onFilterByRegion(region);
                 }} key={region}>{region}</a>
             )
         })
