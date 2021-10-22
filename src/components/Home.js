@@ -6,12 +6,24 @@ import * as actions from "../actions";
 
 class Home extends React.Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+      region: ''
+    }
+  }
+  onFilterByRegion = (region) => {
+    if(region) {
+      this.setState({region: region})
+      this.props.getCountriesByRegion(region);
+    }
+  }
   render() {
     if(this.props.list) {
       const countriesList = this.props.list['countriesList'];
       return (
         <div className="page-content container">
-          <HomeSearch></HomeSearch>
+          <HomeSearch filterByRegion={this.onFilterByRegion}></HomeSearch>
           <CountriesList countries={countriesList}></CountriesList>
         </div>
       );

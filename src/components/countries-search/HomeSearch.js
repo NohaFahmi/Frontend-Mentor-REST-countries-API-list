@@ -8,10 +8,17 @@ export class HomeSearch extends React.Component {
         regions: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
     };
 
+    onFilterByRegion(region) {
+        this.props.filterByRegion(region)
+    }
+
     renderFilterOptions({regions}) {
         return regions.map((region) => {
             return (
-                <a className="dropdown-item" href="#">{region}</a>
+                <a className="dropdown-item" href="#" onClick={(event) => {
+                    event.preventDefault();
+                    this.onFilterByRegion(region)
+                }} key={region}>{region}</a>
             )
         })
     }

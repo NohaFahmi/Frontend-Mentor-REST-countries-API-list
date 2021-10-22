@@ -32,3 +32,14 @@ export const getCountriesByListOfCodes = async (listOfCodes) => {
         payload
     }
 }
+
+export const getCountriesByRegion = async (region) => {
+
+    let response = await fetch(`${baseURL}/region/${region}`);
+    let payload = await response.json();
+
+    return {
+        type: 'COUNTRIES_BY_REGION',
+        payload
+    }
+}
