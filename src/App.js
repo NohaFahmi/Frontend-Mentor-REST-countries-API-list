@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import reducers from './reducers';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +14,7 @@ import CountryDetails from './components/country-details/CountryDetails';
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 
-function App() {
+const App = () => {
   return (
     <Provider store={createStoreWithMW(reducers)}>
       <Router>
